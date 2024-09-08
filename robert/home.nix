@@ -1,4 +1,4 @@
-{ configs, pkgs, ... } :
+{ configs, pkgs, lib, ... } :
 
 {
     home = {
@@ -33,8 +33,71 @@
             enable = true;
         };
 
-        kitty = {
+        kitty = lib.mkForce {
             enable = true;
+            settings = {
+                font_family = "JetBrainsMono Nerd Font";
+                confirm_os_window_close = 0;
+                hide_window_decorations = true;
+                enable_audio_bell = false;
+
+                foreground = "#f8f8f2";
+                background = "#282a36";
+                selection_foreground = "#ffffff";
+                selection_background  = "#44475a";
+
+                url_color = "#8be9fd";
+
+                # black
+                color0 = "#21222c";
+                color8 = "#6272a4";
+
+                # red
+                color1 = "#ff5555";
+                color9 = "#ff6e6e";
+
+                # green
+                color2 = "#50fa7b";
+                color10 = "#69ff94";
+
+                # yellow
+                color3 = "#f1fa8c";
+                color11 = "#ffffa5";
+
+                # blue
+                color4 = "#bd93f9";
+                color12 = "#d6acff";
+
+                # magenta
+                color5 = "#ff79c6";
+                color13 = "#ff92df";
+
+                # cyan
+                color6 = "#8be9fd";
+                color14 = "#a4ffff";
+
+                # white
+                color7 = "#f8f8f2";
+                color15 = "#ffffff";
+
+                # Cursor colors
+                cursor = "#f8f8f2";
+                cursor_text_color = "background";
+
+                # Tab bar colors
+                active_tab_foreground = "#282a36";
+                active_tab_background = "#f8f8f2";
+                inactive_tab_foreground = "#282a36";
+                inactive_tab_background = "#6272a4";
+
+                # Marks
+                mark1_foreground = "#282a36";
+                mark1_background = "#ff5555";
+
+                # Splits/Windows
+                active_border_color = "#f8f8f2";
+                inactive_border_color = "#6272a4";
+            };
         };
         
         zsh = {
@@ -47,6 +110,10 @@
             '';
             shellAliases = {
                 nixbuild = "sudo nixos-rebuild switch --flake /home/robert/nixos_config";
+                ls = "exa --icons";
+                ll = "exa --icons -la";
+                l = "exa --icons -a";
+                la = "exa --icons -a";
             };
 
             oh-my-zsh = {
@@ -93,9 +160,15 @@
             command = "kitty";
             name = "open-kitty";
         };
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+            binding = "<Super>i";
+            command = "i3lock";
+            name = "i3lock";
+        };
         "org/gnome/settings-daemon/plugins/media-keys" = {
             custom-keybindings = [
                 "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+                "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
             ];
         };
         "org/gnome/shell/keybindings" = {
@@ -123,6 +196,19 @@
             switch-to-workspace-8 = ["<Super>8"];
             switch-to-workspace-9 = ["<Super>9"];
             switch-to-workspace-10 = ["<Super>0"];
+
+            move-to-workspace-1=["<Super><Shift>1"];
+            move-to-workspace-2=["<Super><Shift>2"];
+            move-to-workspace-3=["<Super><Shift>3"];
+            move-to-workspace-4=["<Super><Shift>4"];
+            move-to-workspace-5=["<Super><Shift>5"];
+            move-to-workspace-6=["<Super><Shift>6"];
+            move-to-workspace-7=["<Super><Shift>7"];
+            move-to-workspace-8=["<Super><Shift>8"];
+            move-to-workspace-9=["<Super><Shift>9"];
+            move-to-workspace-10=["<Super><Shift>0"];
+
+            activate-window-menu = [];
 
             close = ["<Super>w"];
         };

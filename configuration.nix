@@ -77,6 +77,7 @@
     };
   };
 
+  fonts.packages = with pkgs; [ nerdfonts ];
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
