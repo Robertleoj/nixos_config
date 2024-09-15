@@ -13,6 +13,9 @@
             dust
             eza
             i3lock
+            discord
+            brave
+            obsidian
 
             # gnome
             gnome.dconf-editor
@@ -139,6 +142,9 @@
             disabled-extensions = [];
             enabled-extensions = [
                 "pop-shell@system76.com"
+                "user-theme@gnome-shell-extensions.gcampax.github.com"
+                "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
+                "system-monitor@gnome-shell-extensions.gcampax.github.com"
             ];
         };
         "org/gnome/shell/extensions/pop-shell" = {
@@ -165,10 +171,16 @@
             command = "i3lock";
             name = "i3lock";
         };
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+            binding = "<Super>b";
+            command = "brave";
+            name = "Brave";
+        };
         "org/gnome/settings-daemon/plugins/media-keys" = {
             custom-keybindings = [
                 "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
                 "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+                "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
             ];
         };
         "org/gnome/shell/keybindings" = {
@@ -184,8 +196,9 @@
         };
         "org/gnome/desktop/wm/preferences" = {
             num-workspaces = 10;
+            theme = "Dracula";
         };
-	"org/gnome/desktop/wm/keybindings" = {
+        "org/gnome/desktop/wm/keybindings" = {
             switch-to-workspace-1 = ["<Super>1"];
             switch-to-workspace-2 = ["<Super>2"];
             switch-to-workspace-3 = ["<Super>3"];
@@ -211,6 +224,23 @@
             activate-window-menu = [];
 
             close = ["<Super>w"];
+            minimize = [];
+        };
+        "org/gnome/desktop/interface" = {
+            gtk-theme = "Dracula";
+            color-scheme = "prefer-dark";
+            gtk-color-palette = "black:white:gray50:red:purple:blue:light blue:green:yellow:orange:lavender:brown:goldenrod4:dodger blue:pink:light green:gray10:gray30:gray75:gray90";
+        };
+        "org/gnome/shell/extensions/pop-shell" = {
+            pop-workspace-up = [];
+            pop-workspace-down = [];
+            pop-monitor-down = [];
+            pop-monitor-left = [];
+            pop-monitor-right = [];
+            tile-move-right-global = ["<Super><Shift>l"];
+            tile-move-up-global = ["<Super><Shift>k"];
+            tile-move-left-global = ["<Super><Shift>h"];
+            tile-move-down-global = ["<Super><Shift>j"];
         };
     
     };

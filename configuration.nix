@@ -44,6 +44,7 @@
       enable = true;
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
+
       
       # Enable the GNOME Desktop Environment.
       # Configure keymap in X11
@@ -105,8 +106,16 @@
       zsh.enable = true;
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    # Allow unfree packages
+    allowUnfree = true;
+
+    # allow electron
+    permittedInsecurePackages = [
+      "electron-25.9.0"
+    ];
+  };
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -117,6 +126,7 @@
     wget
     kitty
     gnomeExtensions.pop-shell
+    dracula-theme
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
