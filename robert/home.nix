@@ -120,7 +120,6 @@
                 ll = "exa --icons -la";
                 l = "exa --icons -a";
                 la = "exa --icons -a";
-                vim = "nvim";
             };
 
             oh-my-zsh = {
@@ -138,6 +137,14 @@
         neovim = {
             enable = true;
             defaultEditor = true;
+            viAlias = true;
+            vimAlias = true;
+            plugins = with pkgs.vimPlugins; [
+                vim-airline
+            ];
+            extraConfig = ''
+                set number relativenumber
+            '';
         };
     };
 
