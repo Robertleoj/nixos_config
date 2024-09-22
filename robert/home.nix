@@ -18,6 +18,8 @@
             btop
             htop
             wget
+            transmission_4-gtk
+            protonvpn-gui
 
             # gnome
             gnome.dconf-editor
