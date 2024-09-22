@@ -8,7 +8,6 @@
 
 	packages = with pkgs; [
             neofetch
-            vim
             fd
             dust
             eza
@@ -16,6 +15,9 @@
             discord
             brave
             obsidian
+            btop
+            htop
+            wget
 
             # gnome
             gnome.dconf-editor
@@ -110,6 +112,7 @@
             syntaxHighlighting.enable = true;
             initExtra = ''
                 set -o vi
+                bindkey '^ ' autosuggest-accept
             '';
             shellAliases = {
                 nixbuild = "sudo nixos-rebuild switch --flake /home/robert/nixos_config";
@@ -117,6 +120,7 @@
                 ll = "exa --icons -la";
                 l = "exa --icons -a";
                 la = "exa --icons -a";
+                vim = "nvim";
             };
 
             oh-my-zsh = {
@@ -131,6 +135,10 @@
         };
 	
         home-manager.enable = true;
+        neovim = {
+            enable = true;
+            defaultEditor = true;
+        };
     };
 
     
