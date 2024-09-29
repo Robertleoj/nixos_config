@@ -18,8 +18,15 @@
             btop
             htop
             wget
+            vlc
             transmission_4-gtk
             protonvpn-gui
+            (pkgs.python3.withPackages (python-pkgs: with python-pkgs;[
+                pandas
+                numpy
+                matplotlib
+                ipython
+            ]))
 
             # gnome
             gnome.dconf-editor
@@ -210,6 +217,7 @@
             switch-to-application-7 = [];
             switch-to-application-8 = [];
             switch-to-application-9 = [];
+            toggle-quick-settings = [];
         };
         "org/gnome/desktop/wm/preferences" = {
             num-workspaces = 10;
