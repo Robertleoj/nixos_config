@@ -15,6 +15,7 @@
             discord
             brave
             obsidian
+            ffmpeg_7-full
             btop
             htop
             wget
@@ -26,6 +27,7 @@
                 numpy
                 matplotlib
                 ipython
+                tqdm
             ]))
 
             # gnome
